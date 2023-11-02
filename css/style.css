@@ -1,0 +1,106 @@
+.menu_without_burger {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#toggle {
+    opacity: 0;
+}
+
+/* Создание кнопки(стилизация кнопки) */
+.btn {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 25px;
+    height: 25px;
+    z-index: 50;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 5px;
+    box-shadow: 0px 0px 15px 5px gold;
+    cursor: pointer;
+}
+
+/* создание бургера */
+.btn span {
+    width: 80%;
+    left: 10%;
+}
+
+.btn span::before,
+.btn span::after {
+    width: 100%;
+    left: 0;
+}
+
+.btn span,
+.btn span::before,
+.btn span::after {
+    display: block;
+    position: absolute;
+    height: 2px;
+    background-color: gold;
+    transition: 0.5s;
+}
+
+.btn span::before {
+    content: '';
+    top: -8px;
+}
+.btn span::after {
+    content: '';
+    top: 8px;
+}
+
+.menu {
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    left: -100%;
+    width: 300px;
+    height: 100%;
+    padding: 80px 10px;
+    text-align: center;
+    background-color: aqua;
+    box-shadow: 1px 0px 10px 3px rgba(0, 0, 0, 0.61);
+    transition: 0.5s ease-in;
+}
+
+.menu_item {
+    display: block;
+    padding: 15px 0;
+    color: blue;
+    font-family: 'Roboto';
+    font-size: 25px;
+    font-weight: 600;
+    transition: 0.5s;
+}
+
+.menu_item:hover {
+    background-color: blue;
+    color: aqua;
+    border-radius: 5px;
+
+}
+
+#toggle:checked~.btn span {
+    transform: rotate(45deg);
+}
+
+#toggle:checked~.btn span::before {
+    top: 0;
+    transform: rotate(0deg);
+}
+
+#toggle:checked~.btn span::after {
+    top: 0;
+    transform: rotate(-90deg);
+}
+
+#toggle:checked~.menu {
+    visibility: visible;
+    left: 0;
+}
